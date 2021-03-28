@@ -1,0 +1,32 @@
+{
+  "name": "fb-challenge-starter-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "dependencies": {
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/register": "^7.13.8",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.13",
+    "@babel/polyfill": "^7.12.1",
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "start": "babel-node ./src/server.js --exec",
+    "dev": "nodemon --exec babel-node ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankhn/FB-challenge-starter-kit.git"
+  },
+  "author": "frank harerimana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frankhn/FB-challenge-starter-kit/issues"
+  },
+  "homepage": "https://github.com/frankhn/FB-challenge-starter-kit#readme"
+}
