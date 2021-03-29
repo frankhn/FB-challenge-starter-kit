@@ -2,6 +2,7 @@ import express from 'express'
 
 //#region Local imports
 import { BAD_REQUEST, OK } from './constants/statusCodes'
+import { questions } from './data/questions';
 
 
 const app = express();
@@ -18,6 +19,8 @@ app.use((req, res, next) => {
       "Origin,X-Requested-With,Content-Type,Accept,Authorization"
     );
 
+  // Allowed http methods
+  
     if (req.method === "OPTIONS") {
       res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE");
       return res.status(BAD_REQUEST).json({
@@ -37,6 +40,15 @@ app.get('/', (req, res) => {
   });
 });
 
+
+app.get('/questions', (req, res) => {
+  return res.status(OK).json({
+    status: OK,
+    questions
+  })
+})
+
+// catch a non existing API Endpoint.
 app.use((req, res) => {
   res.status(BAD_REQUEST).json({
     status: BAD_REQUEST,
