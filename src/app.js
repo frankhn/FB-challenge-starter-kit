@@ -48,6 +48,42 @@ app.get('/questions', (req, res) => {
   })
 })
 
+
+app.get("/questions/:index", (req, res) => {
+  return res.status(OK).json({
+    status: OK,
+    question: questions[req.params.index],
+  });
+});
+
+app.post("/questions/add", (req, res) => {
+  questions.push({ ...req.body });
+  return res.status(OK).json({
+    status: OK,
+    questions,
+  });
+})
+
+app.delete("/questions/:id", (req, res) => {
+  const newQuestioins = [];
+  console.log(
+    req.params.id,
+    typeof req.params.id,
+    typeof Number(req.params.id),
+    Number(req.params.id)
+  );
+  for (let i = 0; i < questions.length; i++) {
+    if (questions[i].id !== Number(req.params.id)) {
+      newQuestioins.push(questions[i]);
+    }
+  }
+  return res.status(OK).json({
+    status: OK,
+    newQuestioins,
+  });
+});
+
+
 // catch a non existing API Endpoint.
 app.use((req, res) => {
   res.status(BAD_REQUEST).json({
